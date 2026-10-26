@@ -1,0 +1,52 @@
+:root{--paper:#f3f1fb;--card:#fff;--ink:#1b1b3a;--mute:#6b6a8c;--line:#dedcf0;
+--blue:#3d35d6;--hi:#ffd84d;--bad:#e5484d;--good:#1f9d73;
+--serif:"Iowan Old Style",Palatino,Georgia,serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media(prefers-color-scheme:dark){:root{--paper:#14132b;--card:#1d1c3d;--ink:#eeedff;--mute:#9d9bc4;--line:#2f2d5c;--blue:#8c85ff;--hi:#ffd84d;--good:#45d0a0}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;max-width:920px;margin:0 auto;padding:18px 20px}
+.brand{display:flex;gap:10px;align-items:center;font:700 24px var(--serif);color:var(--ink);text-decoration:none}
+nav{display:flex;gap:4px}
+nav button,.ghost{background:none;border:1px solid transparent;color:var(--mute);font:inherit;padding:8px 14px;border-radius:999px;cursor:pointer}
+nav button.on{background:var(--card);color:var(--ink);border-color:var(--line)}
+.ghost{border-color:var(--line)}
+button:hover{color:var(--ink)}
+button:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+main{max-width:920px;margin:0 auto;padding:8px 20px 56px}
+h1{font:700 clamp(30px,6vw,44px)/1.1 var(--serif);margin:8px 0}
+h2{font:700 22px var(--serif);margin:32px 0 10px}
+.level{display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--mute);margin-bottom:14px}
+.letters{display:flex;flex-wrap:wrap;gap:4px}
+.letters b{font:600 14px var(--mono);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--ink)}
+.letters b.new{background:var(--hi);color:#1b1b3a;border-color:var(--hi)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin:14px 0}
+.stats>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.stats b{display:block;font:700 28px var(--mono)}
+small{color:var(--mute)}
+.stage{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,4vw,36px);margin:16px 0;cursor:text}
+.text{font:clamp(20px,3.6vw,30px)/1.9 var(--mono);white-space:pre-wrap;word-break:break-word;color:var(--mute);user-select:none}
+.text span{border-radius:4px;padding:2px 0}
+.text .ok{color:var(--ink)}
+.text .fix{color:var(--bad)}
+.text .cur{background:var(--hi);color:#1b1b3a;box-shadow:0 2px 0 var(--blue)}
+.text .bad{background:var(--bad);color:#fff;animation:shake .15s}
+@keyframes shake{25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
+#cap{position:absolute;inset:0;width:100%;height:100%;opacity:0;resize:none;border:0;cursor:text}
+.hint{color:var(--mute);font-size:14px;margin:18px 0 0}
+kbd{font:12px var(--mono);border:1px solid var(--line);border-radius:5px;padding:1px 6px;background:var(--paper)}
+.note{color:var(--mute);margin:4px 0 12px}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.big>div{background:var(--blue);color:#fff;border-radius:20px;padding:22px}
+.big b{display:block;font:700 clamp(44px,10vw,72px)/1 var(--mono)}
+.big small{color:#ddd9ff}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.primary{background:var(--hi);color:#1b1b3a;border:0;border-radius:999px;padding:12px 26px;font:700 16px system-ui;cursor:pointer;box-shadow:0 3px 0 #c9a516}
+.primary:hover{color:#1b1b3a;filter:brightness(1.05)}
+canvas{width:100%;height:260px;background:var(--card);border:1px solid var(--line);border-radius:16px;display:block}
+.keys{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:8px}
+.key{border-radius:10px;padding:8px 0;text-align:center;font:700 18px var(--mono);background:hsl(var(--h),65%,88%);color:#1b1b3a}
+.key small{display:block;font:11px system-ui;color:#3b3a5c}
+.key.none{background:var(--card);border:1px dashed var(--line);color:var(--mute)}
+.key.none small{color:var(--mute)}
+@media(max-width:560px){.stats.five{grid-template-columns:1fr 1fr}.big b{font-size:44px}}
+@media(prefers-reduced-motion:reduce){.text .bad{animation:none}}

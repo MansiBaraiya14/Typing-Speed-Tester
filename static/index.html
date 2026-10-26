@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quillkey – typing practice that adapts to you</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233d35d6'/><rect x='9' y='21' width='14' height='3' rx='1.5' fill='%23ffd84d'/><text x='16' y='19' font-size='16' font-family='Georgia' font-weight='700' fill='white' text-anchor='middle'>Q</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#" data-v="practice">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3d35d6"/><rect x="9" y="21" width="14" height="3" rx="1.5" fill="#ffd84d"/><text x="16" y="19" font-size="16" font-family="Georgia,serif" font-weight="700" fill="#fff" text-anchor="middle">Q</text></svg>
+    Quillkey
+  </a>
+  <nav>
+    <button data-v="practice" class="on">Practice</button>
+    <button data-v="dash">Progress</button>
+  </nav>
+</header>
+
+<main>
+  <section id="v-practice" class="view">
+    <div class="level">
+      <span>Level <b id="level">1</b></span>
+      <span id="letters" class="letters" aria-label="Unlocked letters"></span>
+    </div>
+    <div class="stats">
+      <div><b id="s-wpm">0</b><small>wpm</small></div>
+      <div><b id="s-acc">100%</b><small>accuracy</small></div>
+      <div><b id="s-err">0</b><small>errors</small></div>
+      <div><b id="s-time">0:00</b><small>time</small></div>
+    </div>
+    <div class="stage" id="stage">
+      <div id="text" class="text" aria-live="off"></div>
+      <textarea id="cap" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Typing input"></textarea>
+      <p class="hint">Start typing — the timer begins on your first key. <kbd>Esc</kbd> for new text.</p>
+    </div>
+    <button class="ghost" id="skip">New text</button>
+  </section>
+
+  <section id="v-results" class="view" hidden>
+    <h1 id="r-title">Session complete</h1>
+    <p id="r-note" class="note"></p>
+    <div class="big">
+      <div><b id="r-wpm">0</b><small>words per minute</small></div>
+      <div><b id="r-acc">0%</b><small>accuracy</small></div>
+    </div>
+    <div class="stats">
+      <div><b id="r-err">0</b><small>errors</small></div>
+      <div><b id="r-time">0:00</b><small>time</small></div>
+      <div><b id="r-chars">0</b><small>characters</small></div>
+    </div>
+    <div class="row">
+      <button class="primary" id="again">Practice again</button>
+      <button class="ghost" id="to-dash">See progress</button>
+    </div>
+    <p class="hint">Press <kbd>Enter</kbd> to start the next session.</p>
+  </section>
+
+  <section id="v-dash" class="view" hidden>
+    <h1>Your progress</h1>
+    <div id="empty" class="note" hidden>No sessions yet. Finish one practice run and your stats will show up here.</div>
+    <div id="cards" class="stats five"></div>
+    <h2>Speed over time</h2>
+    <canvas id="chart" aria-label="WPM per session"></canvas>
+    <h2>Letter accuracy</h2>
+    <div id="keys" class="keys"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
